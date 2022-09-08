@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--Bài 2: Viết chương trình nhập vào 3 cạnh của 1 tam giác.-->
+<!--Kiểm tra xem tam giác đó có phải là tam giác vuông hay không (gợi ý: sử dụng định lý: Pytago)-->
+<body>
+<h1>Viết chương trình nhập vào 3 cạnh của 1 tam giác</h1> <br><br>
+<label>Hãy nhập cạnh a</label><br>
+<input type="text" id="canhA"><br>
+<label>Hãy nhập cạnh b</label><br>
+<input type="text" id="canhB"><br>
+<label>Hãy nhập cạnh  c</label><br>
+<input type="text" id="canhC"><br>
+<button onclick="tamGiac()">Kiểm tra</button>
+<h1 id="hienThi"></h1>
+<h2 id="hienThi2"> </h2>
+<script>
+    function tamGiac() {
+        let a = +document.getElementById('canhA').value
+        let b = +document.getElementById('canhB').value
+        let c = +document.getElementById('canhC').value
+        let pytago = (a * a) - (b * b) - (c * c)
+        let pytago1 = (b * b) - (c * c) - (a * a)
+        let pytago2 = (c * c) - (b * b) - (a * a)
+
+        if(a<=0||b<=0||c<=0) {
+            document.getElementById('hienThi').innerHTML = '<h1>ko phai la tam giác và nhập lại các cạnh khác 0</h1>'
+        }else if (a+b> c&& a+c > b&&c+b>a) {
+                document.getElementById('hienThi').innerHTML = '<h1>là 1 hình tam giác </h1>'
+    }else
+            document.getElementById('hienThi').innerHTML = '<h1>ko phai la tam giác </h1>'
+
+        if (pytago==0||pytago1==0||pytago2==0){
+            document.getElementById('hienThi2').innerHTML = '<h1>là 1 hình tam giác  vuông </h1>'
+        }else
+            document.getElementById('hienThi2').innerHTML = '<h1>ko là 1 hình tam giác  vuông </h1>'
+    }
+
+
+</script>
+</body>
+</html>
